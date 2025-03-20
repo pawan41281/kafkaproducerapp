@@ -18,7 +18,7 @@ public class KafkaProducerService {
 	}
 	
 	public void publishTransactionMessage(TransactionVo transactionVo) {
-		CompletableFuture<SendResult<String, Object>> future = kafkaTemplate.send("my-topic2", transactionVo);
+		CompletableFuture<SendResult<String, Object>> future = kafkaTemplate.send("transactions", transactionVo);
 		future.whenComplete((result, ex) -> {
 			if(ex!=null) {
 				System.out.println("Failed to publish transaction message : " + transactionVo);

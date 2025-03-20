@@ -16,8 +16,8 @@ public class KafkaConfig {
 
 	@Bean
 	NewTopic createNewTopic() {
-		return new NewTopic("my-topic2", 2, (short) 1); 
-		//this will create new topic 
+		return new NewTopic("transactions", 2, (short) 1); 
+		//this will create new topic if not exists
 		//1st parameter topic name, 
 		//2nd parameter number of partitions, 
 		//3rd param number of replicas

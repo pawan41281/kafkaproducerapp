@@ -24,10 +24,7 @@ public class KafkaProducerController {
 	@PostMapping("")
 	public ResponseEntity<?> publishTransactionMessage(@RequestBody TransactionVo transactionVo) {
 		try {
-			for (int counter = 1; counter <= 10000; counter++) {
-				transactionVo.setTransactionId(String.valueOf(counter));
 				kafkaProducerService.publishTransactionMessage(transactionVo);
-			}
 			return ResponseEntity.ok("Transaction Message published");
 		} catch (Exception e) {
 			System.out.println("Exception: " + e.getMessage());
